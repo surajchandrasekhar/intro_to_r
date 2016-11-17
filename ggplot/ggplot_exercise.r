@@ -16,8 +16,8 @@ suicides <- suicides %>%
 #  Make a line plot of suicides by age
 # (year on the x axis, deaths on the y axis, different line for each age).
 # facet by sex.
-
-
+by_age <- ggplot(suicides, aes(x=year, y=deaths, color = suicides$age)) + geom_line(size = 3) + facet_wrap(~sex, scales = "free")
+by_age
 ##extra credit####
 
 one_state <- all_suicides[all_suicides$state=="Uttar Pradesh"] %>% 
@@ -29,5 +29,5 @@ one_state <- all_suicides[all_suicides$state=="Uttar Pradesh"] %>%
 # Label appropriately.
 
 
-
-
+up <- ggplot(one_state, aes(x=year, y=deaths, color=suicides$age)) + geom_line(size = 3) + facet_wrap(~sex, scales = "free")
+up
